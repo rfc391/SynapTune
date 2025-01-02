@@ -1,2 +1,3 @@
-# draft
-A supportive tool for managing ADHD using neurofeedback and personalised attention tracking.
+# ADHD Aid: NeuroSignal Companion
+
+A supportive tool for managing ADHD using neurofeedback and personalized attention tracking.
