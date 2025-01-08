@@ -2,3 +2,6 @@ numpy
 scipy
 flask
 pytest
+
+grpcio
+grpcio-tools
