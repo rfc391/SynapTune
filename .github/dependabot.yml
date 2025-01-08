@@ -1,45 +1,64 @@
-
 version: 2
 updates:
-
-  - package-ecosystem: "gitsubmodule"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    target-branch: "develop"
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+      time: "06:00"
+      timezone: "UTC"
     target-branch: "develop"
-
-  - package-ecosystem: "docker"
-    directory: "/build"
-    schedule:
-      interval: "daily"
-    target-branch: "develop"
-
-  - package-ecosystem: "gomod"
-    directory: "/build"
-    schedule:
-      interval: "daily"
-    target-branch: "develop"
-
-  - package-ecosystem: "maven"
-    directory: "/build"
-    schedule:
-      interval: "daily"
-    target-branch: "develop"
-
-  - package-ecosystem: "npm"
-    directory: "/build"
-    schedule:
-      interval: "daily"
-    target-branch: "develop"
+    commit-message:
+      prefix: "[GH-Actions]"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "github-actions"
+    automerge: true
+    automerge-strategy: "merge"
 
   - package-ecosystem: "pip"
-    directory: "/build/python"
+    directory: "/"
     schedule:
       interval: "daily"
+      time: "07:00"
+      timezone: "UTC"
     target-branch: "develop"
+    commit-message:
+      prefix: "[Python]"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "python"
+    automerge: true
+    automerge-strategy: "merge"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "08:00"
+      timezone: "UTC"
+    target-branch: "develop"
+    commit-message:
+      prefix: "[NPM]"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "npm"
+    automerge: true
+    automerge-strategy: "squash"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      time: "09:00"
+      timezone: "UTC"
+    target-branch: "develop"
+    commit-message:
+      prefix: "[Docker]"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "docker"
+    automerge: false
