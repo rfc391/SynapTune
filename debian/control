@@ -1,0 +1,9 @@
+Package: synaptune
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-pip
+Maintainer: Apex Security Int Ltd <support@apexsecurityint.com>
+Description: Military-grade signal analysis and neurofeedback system.
+ Advanced CLI for processing, feedback, and tracking of neural signals.

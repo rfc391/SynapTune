@@ -1,0 +1,30 @@
+
+version: 1.0.0
+app: SynapTune
+arch: x86_64
+runtime:
+  env:
+    PYTHONPATH: usr/lib/python3/dist-packages
+  path_mappings:
+    - /usr/lib:/lib
+    - /usr/bin:/bin
+
+AppDir:
+  path: ./AppDir
+  files:
+    - usr/bin/python3
+    - usr/bin/pip3
+    - usr/lib/python3
+    - usr/local/bin/synaptune
+  symlinks:
+    synaptune: usr/local/bin/synaptune
+
+script:
+  - pip3 install synaptune --target=AppDir/usr/lib/python3/dist-packages/
+  - cp $(which python3) AppDir/usr/bin/python3
+  - cp $(which pip3) AppDir/usr/bin/pip3
+  - chmod +x AppDir/usr/bin/python3
+
+AppRun:
+  path: /usr/bin/python3
+  args: -m synaptune.cli.main
